@@ -20,5 +20,10 @@ public class LogroService {
 	public ArrayList <LogroModel> consultarLogros(){
 		return (ArrayList <LogroModel>) logroRepository.findAll();
 	}
+	
+	//método para crear un logro
+	public LogroModel crearLogro (LogroModel logro) {
+		return logroRepository.save(logro);
+	}
 
 }
