@@ -1,6 +1,7 @@
 package com.AhsokaVoice.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,4 +27,7 @@ public class LogroService {
 		return logroRepository.save(logro);
 	}
 
+	public Optional <LogroModel> consultarPorId(Long id){
+		return logroRepository.findById(id);
+	}
 }
