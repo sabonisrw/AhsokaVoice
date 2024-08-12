@@ -30,4 +30,13 @@ public class LogroService {
 	public Optional <LogroModel> consultarPorId(Long id){
 		return logroRepository.findById(id);
 	}
+	
+	public boolean eliminarLogro(Long id) {
+		try {
+			logroRepository.deleteById(id);
+			return true;
+		}catch (Exception err){
+			return false;
+		}
+	}
 }
