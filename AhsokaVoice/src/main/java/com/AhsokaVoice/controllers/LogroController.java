@@ -14,12 +14,11 @@ import com.AhsokaVoice.services.LogroService;
 
 @RestController
 
-@RequestMapping("/logros")
+@RequestMapping("/logrosAV")
 
 public class LogroController {
 
 	@Autowired
-	
 	LogroService logroService;
 	
 	//regresa todos los logros
@@ -28,7 +27,6 @@ public class LogroController {
 		return logroService.consultarLogros();
 	}
 	
-	//crea el logro proporcionado, regresando la información creada + ID
 	@PostMapping()
 	public LogroModel crearLogro(@RequestBody LogroModel logro) {
 		return this.logroService.crearLogro(logro);
