@@ -22,6 +22,10 @@ public class ConteoModel {
 	private Long id;
     private Integer conteo;
     private Long idLogro;
+    private Long idUser;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date fecha;
+    
     
 	public Integer getConteo() {
 		return conteo;
@@ -34,5 +38,17 @@ public class ConteoModel {
 	}
 	public void setIdLogro(Long idLogro) {
 		this.idLogro = idLogro;
+	}
+	public Long getIdUser() {
+		return idUser;
+	}
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+	public Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	} 
 }
