@@ -1,13 +1,12 @@
 package com.AhsokaVoice.services.impl;
 
 
-import com.AhsokaVoice.exception.ResourceNotfoundException;
+import com.AhsokaVoice.exceptions.ResourceNotfoundException;
 import com.AhsokaVoice.models.UsuariosModel;
 import com.AhsokaVoice.repositories.UsuarioRepository;
 import com.AhsokaVoice.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 import java.util.UUID;
