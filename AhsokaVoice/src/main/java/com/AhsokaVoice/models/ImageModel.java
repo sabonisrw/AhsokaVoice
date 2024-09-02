@@ -10,41 +10,29 @@ public class ImageModel {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 
-@Column(nullable = false)
+@Column(name = "nombre")
     private  String nombre;
 
-@Column(nullable = false)
+    @Column(name = "tipo")
     private  String tipo;
 
 @Lob
-@Column(nullable = false)
-    private byte[] imagen;
+    private byte[] datos;
 
 //constructor vacio
     public ImageModel() {
     }
  // Constructores
-
-
     public ImageModel(Long id,
                       String nombre,
                       String tipo,
-                      byte[] imagen) {
+                      byte[] datos) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
-        this.imagen = imagen;
-    }
-//constructor sin ID
-    public ImageModel(String nombre,
-                      String tipo,
-                      byte[] imagen) {
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.imagen = imagen;
+        this.datos = datos;
     }
 
-    //getter and setter
 
     public Long getId() {
         return id;
@@ -70,11 +58,11 @@ private Long id;
         this.tipo = tipo;
     }
 
-    public byte[] getImagen() {
-        return imagen;
+    public byte[] getDatos() {
+        return datos;
     }
 
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
+    public void setDatos(byte[] datos) {
+        this.datos = datos;
     }
 }
