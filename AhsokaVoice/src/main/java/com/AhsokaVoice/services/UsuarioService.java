@@ -16,4 +16,9 @@ List<UsuariosModel> getAllUsuariosModels();
 UsuariosModel getUsuariosModel(String usuarioId);
 
 
+//    UsuariosModel create(UsuariosModel usuariosModel);
+//
+//    List<UsuariosModel> getAll();
+//
+//    UsuariosModel get(String usuarioId);
 }
