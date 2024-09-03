@@ -39,4 +39,13 @@ public class LogroService {
 			return false;
 		}
 	}
+	
+	public String updateLogro (LogroModel logro) {
+		logroRepository.save(logro);
+		return "Success";
+	}
+	
+	public LogroModel updateLogrov2 (LogroModel logro) {
+		return logroRepository.save(logro);		
+	}
 }
