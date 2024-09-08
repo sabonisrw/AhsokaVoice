@@ -25,4 +25,22 @@ public class ConteoService {
 	public ConteoModel agregarLike (ConteoModel like) {
 		return conteoRepository.save(like);
 	}
+
+	
+	//método para contar los likes asociados a un logro
+	public ArrayList<ConteoModel> contarLikes(LogroModel logro){
+			return conteoRepository.findByLogro(logro);
+			 
+	}		
+	
+	//método para eliminar likes 
+	public boolean eliminarLikes(Long id) {
+		try {
+			conteoRepository.deleteById(id);
+			return true;
+		}catch(Exception err) {
+			return false;
+		}
+	}	
+
 }
