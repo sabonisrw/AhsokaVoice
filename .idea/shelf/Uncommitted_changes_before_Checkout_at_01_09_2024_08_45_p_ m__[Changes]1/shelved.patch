@@ -1,0 +1,39 @@
+Index: AhsokaVoice/src/main/java/com/AhsokaVoice/services/UsuarioService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.AhsokaVoice.services;\r\n\r\nimport com.AhsokaVoice.models.UsuariosModel;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n\r\npublic interface UsuarioService  {\r\n\r\nUsuariosModel saveUsuariosModel(UsuariosModel usuariosModel);\r\n\r\nList<UsuariosModel> getAllUsuariosModels();\r\n\r\nUsuariosModel getUsuariosModel(String usuarioId);\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/AhsokaVoice/src/main/java/com/AhsokaVoice/services/UsuarioService.java b/AhsokaVoice/src/main/java/com/AhsokaVoice/services/UsuarioService.java
+--- a/AhsokaVoice/src/main/java/com/AhsokaVoice/services/UsuarioService.java	(revision 8ac3bbbc156d6b2a134732d0da94f00526554a54)
++++ b/AhsokaVoice/src/main/java/com/AhsokaVoice/services/UsuarioService.java	(date 1725243709987)
+@@ -16,4 +16,9 @@
+ UsuariosModel getUsuariosModel(String usuarioId);
+ 
+ 
++//    UsuariosModel create(UsuariosModel usuariosModel);
++//
++//    List<UsuariosModel> getAll();
++//
++//    UsuariosModel get(String usuarioId);
+ }
+Index: AhsokaVoice/src/main/java/com/AhsokaVoice/exception/ResourceNotfoundException.java
+===================================================================
+diff --git a/AhsokaVoice/src/main/java/com/AhsokaVoice/exception/ResourceNotfoundException.java b/AhsokaVoice/src/main/java/com/AhsokaVoice/exception/ResourceNotfoundException.java
+deleted file mode 100644
+--- a/AhsokaVoice/src/main/java/com/AhsokaVoice/exception/ResourceNotfoundException.java	(revision 8ac3bbbc156d6b2a134732d0da94f00526554a54)
++++ /dev/null	(revision 8ac3bbbc156d6b2a134732d0da94f00526554a54)
+@@ -1,12 +0,0 @@
+-package com.AhsokaVoice.exception;
+-
+-public class ResourceNotfoundException extends RuntimeException{
+-
+-
+-    public ResourceNotfoundException() {
+-     super("usuario no encontrado");
+-    }
+-    public ResourceNotfoundException(String message) {
+-        super(message);
+-    }
+-}

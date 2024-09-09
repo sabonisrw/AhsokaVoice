@@ -1,0 +1,54 @@
+Index: AhsokaVoice/src/main/java/com/AhsokaVoice/controllers/UsuarioController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.AhsokaVoice.controllers;\r\n\r\n\r\nimport com.AhsokaVoice.models.UsuariosModel;\r\nimport com.AhsokaVoice.services.UsuarioService;\r\nimport com.AhsokaVoice.services.impl.UsuarioServiceImpl;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.http.HttpStatus;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\nimport java.util.List;\r\n\r\n@RestController\r\n@RequestMapping(\"/usuarios/v1\")\r\npublic class UsuarioController {\r\n\r\n    @Autowired\r\n    private UsuarioService usuarioService;\r\n    @PostMapping\r\n    public ResponseEntity<UsuariosModel> guardarUsuario(@RequestBody UsuariosModel usuariosModelRequest){\r\n        UsuariosModel usuariosModel = usuarioService.saveUsuariosModel(usuariosModelRequest);\r\n        return ResponseEntity.status(HttpStatus.CREATED).body(usuariosModel);\r\n    }\r\n@GetMapping(\"/{usuarioId}\")\r\n    public ResponseEntity<UsuariosModel> obtenerUsuario(@PathVariable String usuaioId){\r\n        UsuariosModel usuariosModel = usuarioService.getUsuariosModel(usuaioId);\r\n        return  ResponseEntity.ok(usuariosModel);\r\n    }\r\n@GetMapping\r\n    public  ResponseEntity<List<UsuariosModel>> listarUsuarios(){\r\n        List<UsuariosModel> usuariosModels = usuarioService.getAllUsuariosModels();\r\n        return ResponseEntity.ok(usuariosModels);\r\n}\r\n\r\n}\r\n
+===================================================================
+diff --git a/AhsokaVoice/src/main/java/com/AhsokaVoice/controllers/UsuarioController.java b/AhsokaVoice/src/main/java/com/AhsokaVoice/controllers/UsuarioController.java
+--- a/AhsokaVoice/src/main/java/com/AhsokaVoice/controllers/UsuarioController.java	(revision 8ac3bbbc156d6b2a134732d0da94f00526554a54)
++++ b/AhsokaVoice/src/main/java/com/AhsokaVoice/controllers/UsuarioController.java	(date 1725245048376)
+@@ -3,7 +3,6 @@
+ 
+ import com.AhsokaVoice.models.UsuariosModel;
+ import com.AhsokaVoice.services.UsuarioService;
+-import com.AhsokaVoice.services.impl.UsuarioServiceImpl;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.http.HttpStatus;
+ import org.springframework.http.ResponseEntity;
+@@ -12,12 +11,15 @@
+ import java.util.List;
+ 
+ @RestController
+-@RequestMapping("/usuarios/v1")
++
++@RequestMapping("/appi")
+ public class UsuarioController {
+ 
+     @Autowired
+     private UsuarioService usuarioService;
+-    @PostMapping
++
++
++    @PostMapping("/usuario")
+     public ResponseEntity<UsuariosModel> guardarUsuario(@RequestBody UsuariosModel usuariosModelRequest){
+         UsuariosModel usuariosModel = usuarioService.saveUsuariosModel(usuariosModelRequest);
+         return ResponseEntity.status(HttpStatus.CREATED).body(usuariosModel);
+@@ -33,4 +35,19 @@
+         return ResponseEntity.ok(usuariosModels);
+ }
+ 
++//    @Autowired
++//    private UsuarioService usuarioService;
++//    @PostMapping
++//    public  ResponseEntity<UsuariosModel> guardarUsuario(@RequestBody UsuariosModel usuariosModel){
++//        return  ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.create(usuariosModel));
++//    }
++//    @GetMapping
++//    public ResponseEntity<List<UsuariosModel>> listarUsuario(){
++//        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.getAll());
++//    }
++//
++//    @GetMapping("/ {usuarioId}")
++//    public  ResponseEntity<UsuariosModel> obtenerUsuario (@PathVariable String usuarioId){
++//        return  ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.get(usuarioId));
++//    }
+ }
