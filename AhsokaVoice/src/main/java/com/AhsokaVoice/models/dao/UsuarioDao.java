@@ -2,11 +2,9 @@ package com.AhsokaVoice.models.dao;
 
 
 
-import com.AhsokaVoice.models.Entity.UsuarioModel;
+import com.AhsokaVoice.models.Entity.Usuario;
 import org.springframework.data.repository.CrudRepository;
-
-// no reconoce la clase usuarioModel a la primerA
-public interface UsuarioDao extends CrudRepository<UsuarioModel,Integer> {
-
+//CrudRepository reemplaza el JPARepository y trae los metodos de un CRUD
+public interface UsuarioDao extends CrudRepository<Usuario, Integer> {
 
 }

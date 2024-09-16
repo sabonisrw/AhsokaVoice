@@ -1,38 +1,43 @@
 package com.AhsokaVoice.controllers;
 
-import com.AhsokaVoice.models.Entity.UsuarioModel;
-import com.AhsokaVoice.services.impl.UsuarioService;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import com.AhsokaVoice.models.Entity.Usuario;
+import com.AhsokaVoice.services.iUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api/v1")
-
 public class UsuarioController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private iUsuario clienteService;
 
     @PostMapping("usuario")
-    public UsuarioModel create(@RequestBody UsuarioModel usuarioModel){
-        return usuarioService.save(usuarioModel);
+    //PARA AÑADIR UN TIPO DE ESTATUS
+    @ResponseStatus(HttpStatus.CREATED)
+    public Usuario create(@RequestBody Usuario usuario){
+        return clienteService.save(usuario);
     }
 
     @PutMapping("usuario")
-    public UsuarioModel update(@RequestBody UsuarioModel usuarioModel){
-        return usuarioService.save(usuarioModel);
+    @ResponseStatus(HttpStatus.ALREADY_REPORTED)
+    public Usuario update(@RequestBody Usuario usuario){
+        return clienteService.save(usuario);
+
     }
 
     @DeleteMapping("usuario/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id){
-       UsuarioModel usuarioDelete  = usuarioService.findById(id);
-       usuarioService.delete(usuarioDelete);
+        Usuario usuarioDelete = clienteService.findById(id);
+        clienteService.delete(usuarioDelete);
     }
 
     @GetMapping("usuario/{id}")
-    public UsuarioModel showById(@PathVariable Integer id){
-        return usuarioService.findById(id);
+    @ResponseStatus(HttpStatus.OK)
+    public Usuario showById(@PathVariable Integer id){
+        return clienteService.findById(id);
     }
-
 }

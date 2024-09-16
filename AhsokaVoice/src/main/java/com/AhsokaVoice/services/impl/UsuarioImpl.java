@@ -1,34 +1,38 @@
 package com.AhsokaVoice.services.impl;
 
-import com.AhsokaVoice.models.Entity.UsuarioModel;
+import com.AhsokaVoice.models.Entity.Usuario;
 import com.AhsokaVoice.models.dao.UsuarioDao;
+import com.AhsokaVoice.services.iUsuario;
 import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Entity
-public class UsuarioServiceImpl implements UsuarioService {
+@Service
+public class UsuarioImpl implements iUsuario {
 
+    //inyeccion de dependencias
     @Autowired
     private UsuarioDao usuarioDao;
-    private Integer id;
 
-
+    //Excepciones por defecto
     @Transactional
     @Override
-    public UsuarioModel save(UsuarioModel usuarioModel) {
-        return usuarioDao.save(usuarioModel);
+    public Usuario save(Usuario usuario) {
+        return usuarioDao.save(usuario);
     }
+
     @Transactional(readOnly = true)
     @Override
-    public UsuarioModel findById(Integer id) {
+    public Usuario findById(Integer id) {
         return usuarioDao.findById(id).orElse(null);
     }
+
+
     @Transactional
     @Override
-    public Void delete(UsuarioModel usuarioModel) {
-        usuarioDao.delete(usuarioModel);
-        return null;
+    public void delete(Usuario usuario) {
+        usuarioDao.delete(usuario);
+
     }
 }

@@ -8,27 +8,34 @@ import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
+//PARA LLAMAR GETTER AND SETTER
 @Data
+//CONSTRUCTORES ARMADOS
 @AllArgsConstructor
+//CONSTRUCTOR VACIO
 @NoArgsConstructor
+// LLAMAR METODO STRING?
 @ToString
 @Entity
 
-@Table(name = "usuario" )
-public class UsuarioModel implements Serializable {
+@Table(name = "Cliente")
+public class Usuario implements Serializable {
 
+    //identificar primarykey
     @Id
-    @Column(name = "id_usuario")
+    //nombre de la columna
+    @Column(name = "id_cliente")
+    //para generar un id automatico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUsuario;
+    private  Integer idCliente;
     @Column(name = "nombre")
-    private  String nombre;
+    private String nombre;
     @Column(name = "apellido")
-    private  String apellido;
+    private String apellido;
     @Column(name = "correo")
-    private String correo;
+    private  String correo;
     @Column(name = "fechaRegistro")
     private Date fechaRegistro;
-    @Column(name = "contrasenia")
+    @Column(name = "constrasenia")
     private String contrasenia;
 }
